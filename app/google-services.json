@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "1077923377823",
+    "firebase_url": "https://prototypecreatech-default-rtdb.firebaseio.com",
+    "project_id": "prototypecreatech",
+    "storage_bucket": "prototypecreatech.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1077923377823:android:a94805800211f8b90828aa",
+        "android_client_info": {
+          "package_name": "com.example.prototypecreatech"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1077923377823-0o7n92t85acm846cdgarivprathps38r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXLHm2kT7khSNdL702jbaTVXRx3XLlk1Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1077923377823-0o7n92t85acm846cdgarivprathps38r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1077923377823:android:5071134efc7009450828aa",
+        "android_client_info": {
+          "package_name": "com.example.techknights"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1077923377823-0o7n92t85acm846cdgarivprathps38r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXLHm2kT7khSNdL702jbaTVXRx3XLlk1Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1077923377823-0o7n92t85acm846cdgarivprathps38r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
