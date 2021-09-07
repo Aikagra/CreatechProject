@@ -1,21 +1,39 @@
 package com.example.techknights;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
 
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class BottomNavigationActivity extends AppCompatActivity {
+
+    FirebaseAuth auth;
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.menuLogout) {
+            auth.signOut();
+            finish();
+            startActivity(new Intent(BottomNavigationActivity.this, MainActivity.class));
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     //Initialize variable
     MeowBottomNavigation bottomNavigation;
@@ -25,6 +43,7 @@ public class BottomNavigationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bottom_navigation);
+        auth = FirebaseAuth.getInstance();
 
 
 
