@@ -20,6 +20,8 @@ import com.google.firebase.database.DatabaseReference;
 
 import java.util.List;
 
+
+
 public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageAdapterViewHolder>
  {
 

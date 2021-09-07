@@ -27,8 +27,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import org.w3c.dom.Text;
-
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
@@ -36,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
     TextInputEditText textEmail, textPassword;
     ProgressBar progressBar;
     TextView forgotPassword;
+
+
 
     private FirebaseAuth auth;
     DatabaseReference reference;
@@ -133,6 +133,7 @@ public class MainActivity extends AppCompatActivity {
     {
         progressBar.setVisibility(View.VISIBLE);
 
+
         String email = Objects.requireNonNull(textEmail.getText()).toString();
         String password = Objects.requireNonNull(textPassword.getText()).toString();
 
@@ -146,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
                                 {
                                     progressBar.setVisibility(View.GONE);
                                     Toast.makeText(getApplicationContext(), "Logged In Successfully!", Toast.LENGTH_SHORT).show();
-                                    Intent i = new Intent(MainActivity.this, GroupChatActivity.class);
+                                    Intent i = new Intent(MainActivity.this, BottomNavigationActivity.class);
                                     startActivity(i);
                                 }
                                 else {
