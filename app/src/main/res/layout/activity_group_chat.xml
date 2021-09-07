@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#182930"
     tools:context=".GroupChatActivity">
 
     <androidx.recyclerview.widget.RecyclerView
@@ -29,6 +30,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#6C7174"
             android:orientation="horizontal">
 
             <EditText
@@ -36,13 +38,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textColor="#c90dbc"
+                android:textColor="#F5F5F5"
+                android:background="#6C7174"
                 android:hint="Enter Message"/>
             
             <ImageButton
                 android:layout_width="45dp"
                 android:layout_height="45dp"
-                android:background="#c6c30c"
+                android:background="#6C7174"
+
                 android:id="@+id/btnSend"
                 android:src="@drawable/ic_send"/>
 

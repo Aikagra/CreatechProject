@@ -89,11 +89,12 @@
             </View>
 
             <TextView
+                android:id="@+id/forgetBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
+                android:clickable="true"
                 android:layout_marginTop="5dp"
-                android:onClick="forgotPassword"
                 android:text="Forgot Password"
                 android:textColor="@color/blue_grey_400"
                 android:textStyle="bold" />

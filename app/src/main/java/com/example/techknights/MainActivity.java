@@ -1,19 +1,18 @@
 package com.example.techknights;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
+
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.DialogInterface;
+
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.InputType;
-import android.view.Gravity;
+
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.LinearLayout;
+
+
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -23,13 +22,15 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import org.w3c.dom.Text;
+
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
     TextInputEditText textEmail, textPassword;
     ProgressBar progressBar;
-    Button loginBtn;
+    TextView forgotPassword;
 
     private FirebaseAuth auth;
     DatabaseReference reference;
@@ -71,7 +72,11 @@ public class MainActivity extends AppCompatActivity {
             textEmail = (TextInputEditText) findViewById(R.id.emailLogin);
             textPassword = (TextInputEditText) findViewById(R.id.passwordLogin);
             progressBar = (ProgressBar) findViewById(R.id.progressBarLogin);
+            forgotPassword = (TextView) findViewById(R.id.forgetBtn);
             reference = FirebaseDatabase.getInstance().getReference().child("Users");
+
+
+
             findViewById(R.id.loginBtn).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -97,12 +102,12 @@ public class MainActivity extends AppCompatActivity {
                                 if (task.isSuccessful())
                                 {
                                     progressBar.setVisibility(View.GONE);
-                                    Toast.makeText(getApplicationContext(), "Logged In Succesfully!", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(), "Logged In Successfully!", Toast.LENGTH_SHORT).show();
                                     Intent i = new Intent(MainActivity.this, GroupChatActivity.class);
                                     startActivity(i);
                                 }
                                 else {
-                                    Toast.makeText(getApplicationContext(), "Error Occured, Try Again!", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(), "Error Occurred, Try Again!", Toast.LENGTH_SHORT).show();
                                     progressBar.setVisibility(View.GONE);
                                 }
 
@@ -111,53 +116,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void forgotPassword(View view)
-    {
-        AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
-
-        LinearLayout container = new LinearLayout(MainActivity.this);
-        container.setOrientation(LinearLayout.VERTICAL);
-        LinearLayout.LayoutParams ip = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-
-        ip.setMargins(50, 0, 0, 100);
-
-        final EditText input = new EditText(MainActivity.this);
-        input.setLayoutParams(ip);
-        input.setGravity(Gravity.TOP|Gravity.START);
-        input.setInputType(InputType.TYPE_TEXT_FLAG_CAP_SENTENCES);
-        input.setLines(1);
-        input.setMaxLines(1);
-
-        container.addView(input, ip);
-
-        alert.setMessage("Enter You Registered Email Address");
-        alert.setTitle("Forgot Password");
-        alert.setView(container);
-
-        alert.setPositiveButton("Submit", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                    String entered_email = input.getText().toString();
-
-                    auth.sendPasswordResetEmail(entered_email)
-                            .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    if(task.isSuccessful())
-                                    {
-                                        dialogInterface.dismiss();
-                                        Toast.makeText(getApplicationContext(), "Email Sent! Please Check.", Toast.LENGTH_SHORT).show();
-                                    }
-                                }
-                            });
-            }
-        });
 
 
 
 
-
-    }
 
 
 

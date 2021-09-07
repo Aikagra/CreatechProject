@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
@@ -85,20 +86,19 @@ public class GroupChatActivity extends AppCompatActivity implements View.OnClick
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu,menu);
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.menu, menu);
         return true;
     }
 
     @Override
-    public boolean onContextItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == R.id.menuLogout);
-
-        {
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.menuLogout) {
                 auth.signOut();
                 finish();
                 startActivity(new Intent(GroupChatActivity.this, MainActivity.class));
         }
-        return super.onContextItemSelected(item);
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -106,6 +106,7 @@ public class GroupChatActivity extends AppCompatActivity implements View.OnClick
         super.onStart();
         final FirebaseUser currentUser = auth.getCurrentUser();
 
+        assert currentUser != null;
         u.setUid(currentUser.getUid());
         u.setEmail(currentUser.getEmail());
 
@@ -114,6 +115,7 @@ public class GroupChatActivity extends AppCompatActivity implements View.OnClick
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 u = snapshot.getValue(User.class);
+                assert u != null;
                 u.setUid(currentUser.getUid());
                 AllMethods.name = u.getName();
 
@@ -132,6 +134,7 @@ public class GroupChatActivity extends AppCompatActivity implements View.OnClick
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 Message message = snapshot.getValue(Message.class);
+                assert message != null;
                 message.setKey(snapshot.getKey());
                 messages.add(message);
                 displayMessages(messages);
@@ -140,7 +143,8 @@ public class GroupChatActivity extends AppCompatActivity implements View.OnClick
             @Override
             public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                     Message message = snapshot.getValue(Message.class);
-                    message.setKey(snapshot.getKey());
+                assert message != null;
+                message.setKey(snapshot.getKey());
 
                     List<Message> newMessages = new ArrayList<Message>();
 
@@ -164,6 +168,7 @@ public class GroupChatActivity extends AppCompatActivity implements View.OnClick
             public void onChildRemoved(@NonNull DataSnapshot snapshot) {
 
                 Message message = snapshot.getValue(Message.class);
+                assert message != null;
                 message.setKey(snapshot.getKey());
 
                 List<Message> newMessages = new ArrayList<Message>();
