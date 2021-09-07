@@ -83,7 +83,7 @@ public class GroupChatActivity extends AppCompatActivity implements View.OnClick
         }
 
     }
-
+         //options menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();

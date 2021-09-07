@@ -2,12 +2,17 @@ package com.example.techknights;
 
 import androidx.annotation.NonNull;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 
 
@@ -37,6 +42,42 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener mAuthStateListener;
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.exitmenu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.exitMenuBtn) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+            builder.setMessage("Are you sure you wanna exit UwU :( ?");
+            builder.setCancelable(true);
+
+            builder.setNegativeButton("Yea", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    finish();
+                }
+            });
+
+            builder.setPositiveButton("Nah", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    dialogInterface.cancel();
+
+                }
+            });
+
+            AlertDialog alertDialog = builder.create();
+            alertDialog.show();
+        }
+        return true;
+    }
+
+    @Override
     protected void onStart() {
         super.onStart();
         //Attach the firebase authentication instance to the change listener
@@ -60,6 +101,8 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         };
+
+
 
 
 //        if (auth.getCurrentUser() !=null)
@@ -113,7 +156,11 @@ public class MainActivity extends AppCompatActivity {
 
                         }
                     });
+
+
+
         }
+
     }
 
 
