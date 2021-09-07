@@ -60,7 +60,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageA
    }
    else
     {
-      holder.tvTitle.setText(message.getName() + ":" +message.getMessage());
+      holder.tvTitle.setText(message.getName() + ":" + message.getMessage());
       holder.ibDelete.setVisibility(View.GONE);
     }
   }

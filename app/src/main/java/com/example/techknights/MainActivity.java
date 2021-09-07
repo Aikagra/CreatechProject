@@ -77,12 +77,7 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        //Attach the firebase authentication instance to the change listener
-        auth.addAuthStateListener(mAuthStateListener);
-    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

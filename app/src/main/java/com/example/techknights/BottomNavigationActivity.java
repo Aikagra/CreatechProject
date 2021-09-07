@@ -1,17 +1,25 @@
 package com.example.techknights;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class BottomNavigationActivity extends AppCompatActivity {
 
     //Initialize variable
     MeowBottomNavigation bottomNavigation;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,11 +31,16 @@ public class BottomNavigationActivity extends AppCompatActivity {
         //Assign Variable
         bottomNavigation = findViewById(R.id.bottom_navigation);
 
+
         //Add menu item
         bottomNavigation.add(new MeowBottomNavigation.Model(1,R.drawable.ic_home));
         bottomNavigation.add(new MeowBottomNavigation.Model(2, R.drawable.ic_missions));
         bottomNavigation.add(new MeowBottomNavigation.Model(3,R.drawable.ic_baseline_chat_bubble_24));
         bottomNavigation.add(new MeowBottomNavigation.Model(4, R.drawable.ic_baseline_person_24));
+
+
+
+
 
         bottomNavigation.setOnShowListener(new MeowBottomNavigation.ShowListener() {
             @Override
