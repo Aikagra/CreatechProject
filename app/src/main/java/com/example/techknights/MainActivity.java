@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.text.InputType;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -28,9 +29,18 @@ public class MainActivity extends AppCompatActivity {
 
     TextInputEditText textEmail, textPassword;
     ProgressBar progressBar;
+    Button loginBtn;
 
-    FirebaseAuth auth;
+    private FirebaseAuth auth;
     DatabaseReference reference;
+    private FirebaseAuth.AuthStateListener mAuthStateListener;
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        //Attach the firebase authentication instance to the change listener
+        auth.addAuthStateListener(mAuthStateListener);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,29 +48,40 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         auth = FirebaseAuth.getInstance();
-        if (auth.getCurrentUser() !=null)
-        {
-            Intent i = new Intent(MainActivity.this, GroupChatActivity.class);
-            startActivity(i);
 
-        }
-        else{
+        //authChangeListener will send intent whenever the state changes => whenever user successfully logs in
+        mAuthStateListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                if(firebaseAuth.getCurrentUser() != null){
+                   // startActivity(new Intent(MainActivity.this, )); //todo: send intent to missions page
+                    finish(); //finishes current activity
+                }
+            }
+        };
+
+
+//        if (auth.getCurrentUser() !=null)
+//        {
+//            Intent i = new Intent(MainActivity.this, GroupChatActivity.class);
+//            startActivity(i);
+//        }
+//        else{
 
             textEmail = (TextInputEditText) findViewById(R.id.emailLogin);
             textPassword = (TextInputEditText) findViewById(R.id.passwordLogin);
             progressBar = (ProgressBar) findViewById(R.id.progressBarLogin);
-
             reference = FirebaseDatabase.getInstance().getReference().child("Users");
-
-
-
+            findViewById(R.id.loginBtn).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    loginUser();
+                }
+            });
         }
 
 
-
-    }
-
-    public void loginUser(View v)
+    public void loginUser()
     {
         progressBar.setVisibility(View.VISIBLE);
 
