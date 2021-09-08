@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardElevation="8dp"
+    app:cardCornerRadius="8dp"
+    android:layout_margin="16dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp">
+
+        <ImageView
+            android:id="@+id/purlimg"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/Missiontext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/purlimg"
+            android:text="This is Mission"
+            android:textColor="#000"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/Timetext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Missiontext"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/purlimg"
+            android:text="This is Time"
+            android:textColor="#000"
+            android:textSize="23sp" />
+
+        <TextView
+            android:id="@+id/AreaText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Timetext"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/purlimg"
+            android:text="This is Area"
+            android:textColor="#000"
+            android:textSize="23sp" />
+
+
+        <TextView
+            android:id="@+id/Imptext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/AreaText"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/purlimg"
+            android:text="This is Imp Lvl"
+            android:textColor="#000"
+            android:textSize="23sp" />
+
+
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>
