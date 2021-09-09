@@ -1,6 +1,7 @@
 package com.example.techknights;
-
+import android.app.Activity;
 import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,18 +9,20 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.techknights.Model.User;
 import com.example.techknights.Model.model;
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.gms.dynamic.IFragmentWrapper;
+
 
 import java.util.ArrayList;
 
 public class myAdapter extends RecyclerView.Adapter<myAdapter.myviewholder>
 {  ArrayList<model> models = new ArrayList<>();
+
    public myAdapter(@NonNull ArrayList<model> options) {
        this.models=options;
 
@@ -33,13 +36,29 @@ public class myAdapter extends RecyclerView.Adapter<myAdapter.myviewholder>
    }
 
     @Override
-    public void onBindViewHolder(@NonNull myviewholder holder, int position) {
-        holder.Missiontext.setText(models.get(position).getMission());
-        holder.Timetext.setText(models.get(position).getTime());
-        holder.AreaText.setText(models.get(position).getArea());
-        holder.Imptext.setText(models.get(position).getImpLevel());
-        Glide.with(holder.img1.getContext()).load(models.get(position).getPurl()).into(holder.img1);
-    }
+    public void onBindViewHolder(@NonNull myviewholder holder, int positions2) {
+        holder.Missiontext.setText(models.get(holder.getBindingAdapterPosition()).getMission());
+        holder.Timetext.setText(models.get(holder.getBindingAdapterPosition()).getTime());
+        holder.AreaText.setText(models.get(holder.getBindingAdapterPosition()).getArea());
+        holder.Imptext.setText(models.get(holder.getBindingAdapterPosition()).getImpLevel());
+        Glide.with(holder.img1.getContext()).load(models.get(holder.getBindingAdapterPosition()).getPurl()).into(holder.img1);
+        holder.cardView1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DetailsFragment df = new DetailsFragment();
+                Bundle b = new Bundle();
+                b.putString("Id", models.get(holder.getBindingAdapterPosition()).getId());
+                b.putString("Area", models.get(holder.getBindingAdapterPosition()).getArea());
+                b.putString("ImpLevel", models.get(holder.getBindingAdapterPosition()).getImpLevel());
+                b.putString("Mission", models.get(holder.getBindingAdapterPosition()).getMission());
+                b.putString("Time", models.get(holder.getBindingAdapterPosition()).getTime());
+                b.putString("purl", models.get(holder.getBindingAdapterPosition()).getPurl());
+                df.setArguments(b);
+                FragmentManager fragmentManager = (FragmentManager) ((BottomNavigationActivity) holder.img1.getContext()).getSupportFragmentManager();
+                df.show(fragmentManager, "");
+            }
+        });
+   }
 
     @Override
     public int getItemCount() {
@@ -50,6 +69,8 @@ public class myAdapter extends RecyclerView.Adapter<myAdapter.myviewholder>
     {
         ImageView img1;
         TextView Missiontext, Timetext, AreaText, Imptext;
+        CardView cardView1;
+
         public myviewholder(@NonNull View itemView) {
             super(itemView);
 
@@ -58,7 +79,9 @@ public class myAdapter extends RecyclerView.Adapter<myAdapter.myviewholder>
             Timetext=itemView.findViewById(R.id.Timetext);
             AreaText=itemView.findViewById(R.id.AreaText);
             Imptext=itemView.findViewById(R.id.Imptext);
+            cardView1=itemView.findViewById(R.id.cardView1);
         }
+
     }
 
 

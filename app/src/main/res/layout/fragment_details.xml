@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/cardView1"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardElevation="8dp"
-    app:cardCornerRadius="8dp"
-    android:layout_margin="16dp">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="#182930"
+    tools:context=".DetailsFragment">
+
+
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -26,7 +28,7 @@
             android:layout_marginLeft="10dp"
             android:layout_toRightOf="@id/purlimg"
             android:text="This is Mission"
-            android:textColor="#000"
+            android:textColor="#F5F5F5"
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -38,7 +40,7 @@
             android:layout_marginLeft="10dp"
             android:layout_toRightOf="@id/purlimg"
             android:text="This is Time"
-            android:textColor="#000"
+            android:textColor="#F5F5F5"
             android:textSize="23sp" />
 
         <TextView
@@ -49,7 +51,7 @@
             android:layout_marginLeft="10dp"
             android:layout_toRightOf="@id/purlimg"
             android:text="This is Area"
-            android:textColor="#000"
+            android:textColor="#F5F5F5"
             android:textSize="23sp" />
 
 
@@ -61,11 +63,26 @@
             android:layout_marginLeft="10dp"
             android:layout_toRightOf="@id/purlimg"
             android:text="This is Imp Lvl"
-            android:textColor="#000"
+            android:textColor="#F5F5F5"
             android:textSize="23sp" />
 
 
     </RelativeLayout>
 
+    <TextView
+        android:id="@+id/textViewDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textColor="#F5F5F5"
+        android:padding="20dp"
+        android:text="@string/hello_blank_fragment" />
 
-</androidx.cardview.widget.CardView>
+    <ImageView
+        android:id="@+id/imageViewDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:layout_gravity="center"/>
+
+</LinearLayout>

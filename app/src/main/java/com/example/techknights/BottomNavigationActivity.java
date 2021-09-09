@@ -1,7 +1,7 @@
 package com.example.techknights;
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,7 +13,7 @@ import android.widget.Toast;
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class BottomNavigationActivity extends AppCompatActivity {
+public class BottomNavigationActivity extends FragmentActivity {
 
     FirebaseAuth auth;
 

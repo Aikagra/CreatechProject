@@ -2,14 +2,23 @@ package com.example.techknights.Model;
 
 public class model {
 
-    String Mission, Area, Time, ImpLevel, purl;
+    String Mission, Area, Time, ImpLevel, purl, Id;
 
-    public model(String Mission, String Area, String Time, String ImpLevel, String purl) {
+    public String getId() {
+        return Id;
+    }
+
+    public void setId(String id) {
+        Id = id;
+    }
+
+    public model(String Mission, String Area, String Time, String ImpLevel, String purl, String Id) {
         this.Mission = Mission;
         this.Area = Area;
         this.Time = Time;
         this.ImpLevel = ImpLevel;
         this.purl = purl;
+        this.Id = Id;
     }
 
     public model() {

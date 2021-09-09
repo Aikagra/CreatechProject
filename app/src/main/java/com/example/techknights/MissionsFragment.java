@@ -71,7 +71,9 @@ public class MissionsFragment extends Fragment {
                 if (snapshot.getValue()!=null){
                     ArrayList<model> models = new ArrayList<>();
                     for (DataSnapshot m:snapshot.getChildren()){
-                        models.add(m.getValue(model.class));
+                        model m2 = m.getValue(model.class);
+                        m2.setId(m.getKey());
+                        models.add(m2);
                     }
 
                     Toast.makeText(getContext(), String.valueOf(models.size()), Toast.LENGTH_SHORT).show();
