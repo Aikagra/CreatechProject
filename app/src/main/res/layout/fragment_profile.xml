@@ -86,12 +86,12 @@
                     android:id="@+id/missionDone_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="15"
-                    android:includeFontPadding="false"
-                    android:textSize="20sp"
-                    android:textColor="@color/offwhite"
+                    android:layout_centerInParent="true"
                     android:fontFamily="sans-serif-black"
-                    android:layout_centerInParent="true" />
+                    android:includeFontPadding="false"
+                    android:text="15"
+                    android:textColor="@color/offwhite"
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/missionDone_desc"
