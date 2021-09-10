@@ -83,23 +83,7 @@ public class GroupChatActivity extends AppCompatActivity implements View.OnClick
         }
 
     }
-         //options menu
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.menu, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == R.id.menuLogout) {
-                auth.signOut();
-                finish();
-                startActivity(new Intent(GroupChatActivity.this, MainActivity.class));
-        }
-        return super.onOptionsItemSelected(item);
-    }
 
     @Override
     protected void onStart() {

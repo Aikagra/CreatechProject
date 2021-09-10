@@ -39,17 +39,6 @@
             android:textColor="@color/offwhite"
             android:textSize="20sp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/full_name"
-            android:layout_marginLeft="10dp"
-            android:layout_toRightOf="@+id/profileImage"
-            android:includeFontPadding="false"
-            android:text="mister_white"
-            android:textColor="@color/offwhite"
-            android:textSize="14sp" />
-
     </RelativeLayout>
 
 
@@ -193,7 +182,7 @@
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/ic_baseline_email_24"
                 android:drawablePadding="10dp"
-                android:text="MisterWhile@gmail.com"
+                android:text="MisterWhite@gmail.com"
                 />
 
 

@@ -11,15 +11,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:background="#24242F"
         >
 
-    <ImageButton
+    <androidx.appcompat.widget.AppCompatImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_back"
         android:padding="10dp"
+        android:id="@+id/backButton"
         style="@style/Widget.AppCompat.ActionButton"
-        />
+        app:tint="@color/white" />
 
 
 

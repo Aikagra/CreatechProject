@@ -75,8 +75,6 @@ public class MissionsFragment extends Fragment {
                         m2.setId(m.getKey());
                         models.add(m2);
                     }
-
-                    Toast.makeText(getContext(), String.valueOf(models.size()), Toast.LENGTH_SHORT).show();
                     adapter=new myAdapter(models);
                     Missionsview.setLayoutManager(new LinearLayoutManager(getContext()));
                     Missionsview.setAdapter(adapter);
