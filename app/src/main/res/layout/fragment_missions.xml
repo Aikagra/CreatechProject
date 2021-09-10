@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#24242F"
     tools:context=".MissionsFragment">
 
@@ -14,11 +15,13 @@
 
         android:visibility="visible" />
 
-    <ProgressBar
-        android:id="@+id/progressBar100"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_gravity="center"
-        android:indeterminate="true"
-        android:visibility="visible" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animationMissions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:lottie_rawRes="@raw/loadinganimation"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="false"
+        android:visibility="gone"/>
 </FrameLayout>

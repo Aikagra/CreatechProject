@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.example.techknights.Model.model;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DataSnapshot;
@@ -31,7 +32,7 @@ public class MissionsFragment extends Fragment {
     private String mParam2;
     RecyclerView Missionsview;
     myAdapter adapter;
-    ProgressBar progressBar100;
+    LottieAnimationView animationMissions;
 
     public MissionsFragment() {
 
@@ -63,7 +64,7 @@ public class MissionsFragment extends Fragment {
         View view= inflater.inflate(R.layout.fragment_missions, container, false);
 
         Missionsview=(RecyclerView) view.findViewById(R.id.MissionsView);
-        progressBar100 = view.findViewById(R.id.progressBar100);
+        animationMissions = view.findViewById(R.id.animationMissions);
 
         FirebaseDatabase.getInstance().getReference().child("Missions").addValueEventListener(new ValueEventListener() {
             @Override
@@ -79,7 +80,7 @@ public class MissionsFragment extends Fragment {
                     Missionsview.setLayoutManager(new LinearLayoutManager(getContext()));
                     Missionsview.setAdapter(adapter);
                     Missionsview.setVisibility(View.VISIBLE);
-                    progressBar100.setVisibility(View.INVISIBLE);
+                    animationMissions.setVisibility(View.GONE);
                 }
             }
 

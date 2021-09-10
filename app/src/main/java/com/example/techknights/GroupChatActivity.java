@@ -3,6 +3,7 @@ package com.example.techknights;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatImageButton;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -65,7 +66,16 @@ public class GroupChatActivity extends AppCompatActivity implements View.OnClick
         imgButton = (ImageButton) findViewById(R.id.btnSend);
         imgButton.setOnClickListener(this);
         messages = new ArrayList<>();
+
+
+        ((AppCompatImageButton) findViewById(R.id.backButtonChat)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
     }
+
 
     @Override
     public void onClick(View view) {

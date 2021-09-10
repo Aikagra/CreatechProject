@@ -25,6 +25,7 @@
 
 
             <ImageView
+                android:id="@+id/imageView"
                 android:layout_width="178dp"
                 android:layout_height="136dp"
                 android:layout_gravity="center"
@@ -37,6 +38,7 @@
             </View>
 
             <TextView
+                android:id="@+id/emailView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Email"
@@ -63,6 +65,7 @@
             </View>
 
             <TextView
+                android:id="@+id/passwordView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Password"
@@ -85,7 +88,8 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="10dp"></View>
+                android:layout_height="10dp">
+            </View>
 
             <TextView
                 android:id="@+id/forgetBtn"
@@ -100,7 +104,8 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="10dp"></View>
+                android:layout_height="10dp">
+            </View>
 
             <Button
                 android:id="@+id/loginBtn"
@@ -115,7 +120,8 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="10dp"></View>
+                android:layout_height="10dp">
+            </View>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -131,14 +137,17 @@
 
         </LinearLayout>
 
-        <ProgressBar
-            android:layout_width="wrap_content"
+
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animationLogin"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:lottie_rawRes="@raw/loadinganimation"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="false"
             android:layout_centerInParent="true"
-            android:indeterminate="true"
-            android:indeterminateTint="@color/black"
-            android:visibility="gone"
-            android:id="@+id/progressBarLogin"/>
+            android:visibility="gone" />
 
 
 

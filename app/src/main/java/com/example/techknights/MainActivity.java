@@ -15,10 +15,13 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 
-
-import android.widget.ProgressBar;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.airbnb.lottie.LottieAnimationView;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
@@ -32,8 +35,9 @@ import java.util.Objects;
 public class MainActivity extends AppCompatActivity {
 
     TextInputEditText textEmail, textPassword;
-    ProgressBar progressBar;
+    LottieAnimationView animationLogin;
     TextView forgotPassword;
+    Button loginBtn;
 
 
 
@@ -107,18 +111,54 @@ public class MainActivity extends AppCompatActivity {
 //        }
 //        else{
 
+            TextView emailView = (TextView) findViewById(R.id.emailView);
+            TextView passwordView = (TextView) findViewById(R.id.passwordView);
+        ImageView imageView = (ImageView) findViewById(R.id.imageView);
             textEmail = (TextInputEditText) findViewById(R.id.emailLogin);
             textPassword = (TextInputEditText) findViewById(R.id.passwordLogin);
-            progressBar = (ProgressBar) findViewById(R.id.progressBarLogin);
+            animationLogin = (LottieAnimationView) findViewById(R.id.animationLogin);
             forgotPassword = (TextView) findViewById(R.id.forgetBtn);
             reference = FirebaseDatabase.getInstance().getReference().child("Users");
+            loginBtn = (Button) findViewById(R.id.loginBtn);
 
 
 
-            findViewById(R.id.loginBtn).setOnClickListener(new View.OnClickListener() {
+            loginBtn.findViewById(R.id.loginBtn).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     loginUser();
+                    animationLogin.setVisibility(View.VISIBLE);
+                    animationLogin.playAnimation();
+                    loginBtn.setVisibility(View.INVISIBLE);
+                    forgotPassword.setVisibility(View.INVISIBLE);
+                    textEmail.setVisibility(View.INVISIBLE);
+                    textPassword.setVisibility(View.INVISIBLE);
+                    emailView.setVisibility(View.INVISIBLE);
+                    passwordView.setVisibility(View.INVISIBLE);
+                    imageView.setVisibility(View.INVISIBLE);
+
+
+
+                    Thread thread = new Thread(){
+
+                        public void run(){
+                            try {
+                                sleep(2000);
+
+                            }
+                            catch (Exception e){
+                                e.printStackTrace();
+
+                            }
+                            finally {
+                                Intent intent = new Intent(MainActivity.this , BottomNavigationActivity.class);
+                                startActivity(intent);
+
+                            }
+                        }
+                    };thread.start();
+
+
                 }
             });
         }
@@ -126,7 +166,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void loginUser()
     {
-        progressBar.setVisibility(View.VISIBLE);
+
 
 
         String email = Objects.requireNonNull(textEmail.getText()).toString();
@@ -140,14 +180,14 @@ public class MainActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful())
                                 {
-                                    progressBar.setVisibility(View.GONE);
+
                                     Toast.makeText(getApplicationContext(), "Logged In Successfully!", Toast.LENGTH_SHORT).show();
                                     Intent i = new Intent(MainActivity.this, BottomNavigationActivity.class);
                                     startActivity(i);
                                 }
                                 else {
                                     Toast.makeText(getApplicationContext(), "Error Occurred, Try Again!", Toast.LENGTH_SHORT).show();
-                                    progressBar.setVisibility(View.GONE);
+
                                 }
 
                         }
