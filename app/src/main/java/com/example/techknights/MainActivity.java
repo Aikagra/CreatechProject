@@ -30,14 +30,18 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import org.w3c.dom.Text;
+
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
     TextInputEditText textEmail, textPassword;
     LottieAnimationView animationLogin;
-    TextView forgotPassword;
     Button loginBtn;
+    ImageView imageView;
+    TextView emailView;
+    TextView passwordView;
 
 
 
@@ -111,13 +115,12 @@ public class MainActivity extends AppCompatActivity {
 //        }
 //        else{
 
-            TextView emailView = (TextView) findViewById(R.id.emailView);
-            TextView passwordView = (TextView) findViewById(R.id.passwordView);
-        ImageView imageView = (ImageView) findViewById(R.id.imageView);
+            emailView = (TextView) findViewById(R.id.emailView);
+             passwordView = (TextView) findViewById(R.id.passwordView);
+         imageView = (ImageView) findViewById(R.id.imageView);
             textEmail = (TextInputEditText) findViewById(R.id.emailLogin);
             textPassword = (TextInputEditText) findViewById(R.id.passwordLogin);
             animationLogin = (LottieAnimationView) findViewById(R.id.animationLogin);
-            forgotPassword = (TextView) findViewById(R.id.forgetBtn);
             reference = FirebaseDatabase.getInstance().getReference().child("Users");
             loginBtn = (Button) findViewById(R.id.loginBtn);
 
@@ -130,33 +133,11 @@ public class MainActivity extends AppCompatActivity {
                     animationLogin.setVisibility(View.VISIBLE);
                     animationLogin.playAnimation();
                     loginBtn.setVisibility(View.INVISIBLE);
-                    forgotPassword.setVisibility(View.INVISIBLE);
                     textEmail.setVisibility(View.INVISIBLE);
                     textPassword.setVisibility(View.INVISIBLE);
                     emailView.setVisibility(View.INVISIBLE);
                     passwordView.setVisibility(View.INVISIBLE);
                     imageView.setVisibility(View.INVISIBLE);
-
-
-
-                    Thread thread = new Thread(){
-
-                        public void run(){
-                            try {
-                                sleep(2000);
-
-                            }
-                            catch (Exception e){
-                                e.printStackTrace();
-
-                            }
-                            finally {
-                                Intent intent = new Intent(MainActivity.this , BottomNavigationActivity.class);
-                                startActivity(intent);
-
-                            }
-                        }
-                    };thread.start();
 
 
                 }
@@ -182,12 +163,26 @@ public class MainActivity extends AppCompatActivity {
                                 {
 
                                     Toast.makeText(getApplicationContext(), "Logged In Successfully!", Toast.LENGTH_SHORT).show();
-                                    Intent i = new Intent(MainActivity.this, BottomNavigationActivity.class);
-                                    startActivity(i);
+                                    Intent intent = new Intent(MainActivity.this , BottomNavigationActivity.class);
+                                    animationLogin.setVisibility(View.GONE);
+                                    loginBtn.setVisibility(View.VISIBLE);
+                                    textEmail.setVisibility(View.VISIBLE);
+                                    textPassword.setVisibility(View.VISIBLE);
+                                    emailView.setVisibility(View.VISIBLE);
+                                    passwordView.setVisibility(View.VISIBLE);
+                                    imageView.setVisibility(View.VISIBLE);
+                                    startActivity(intent);
+
                                 }
                                 else {
                                     Toast.makeText(getApplicationContext(), "Error Occurred, Try Again!", Toast.LENGTH_SHORT).show();
-
+                                    animationLogin.setVisibility(View.GONE);
+                                    loginBtn.setVisibility(View.VISIBLE);
+                                    textEmail.setVisibility(View.VISIBLE);
+                                    textPassword.setVisibility(View.VISIBLE);
+                                    emailView.setVisibility(View.VISIBLE);
+                                    passwordView.setVisibility(View.VISIBLE);
+                                    imageView.setVisibility(View.VISIBLE);
                                 }
 
                         }

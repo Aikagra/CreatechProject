@@ -29,7 +29,7 @@
                 android:layout_width="178dp"
                 android:layout_height="136dp"
                 android:layout_gravity="center"
-                android:src="@drawable/incog" />
+                android:src="@drawable/logolast" />
 
             <View
                 android:layout_width="match_parent"
@@ -91,17 +91,6 @@
                 android:layout_height="10dp">
             </View>
 
-            <TextView
-                android:id="@+id/forgetBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:layout_marginTop="5dp"
-                android:clickable="true"
-                android:text="Forgot Password"
-                android:textColor="@color/blue_grey_400"
-                android:textStyle="bold" />
-
             <View
                 android:layout_width="match_parent"
                 android:layout_height="10dp">
@@ -113,10 +102,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="-4dp"
                 android:layout_marginRight="-4dp"
-                android:backgroundTint="#6C7174"
+                android:backgroundTint="@color/offwhite"
                 android:text="Login"
                 android:textAllCaps="false"
-                android:textColor="@color/white" />
+                android:textColor="#24242F" />
 
             <View
                 android:layout_width="match_parent"

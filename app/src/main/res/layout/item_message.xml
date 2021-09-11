@@ -18,6 +18,7 @@
                 android:id="@+id/l1Message"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
+                android:paddingHorizontal="20dp"
                 android:background="@color/teal_200"
                 android:orientation="horizontal">
 

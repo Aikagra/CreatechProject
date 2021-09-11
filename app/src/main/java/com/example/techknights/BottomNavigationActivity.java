@@ -15,11 +15,18 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class BottomNavigationActivity extends FragmentActivity {
 
-    FirebaseAuth auth;
+    FirebaseAuth auth = FirebaseAuth.getInstance();
     //Initialize variable
     MeowBottomNavigation bottomNavigation;
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (auth.getCurrentUser() !=null){
+            auth.signOut();
+        }
 
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

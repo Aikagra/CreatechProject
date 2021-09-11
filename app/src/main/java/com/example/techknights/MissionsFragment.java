@@ -77,7 +77,7 @@ public class MissionsFragment extends Fragment {
                         models.add(m2);
                     }
                     adapter=new myAdapter(models);
-                    Missionsview.setLayoutManager(new LinearLayoutManager(getContext()));
+                    Missionsview.setLayoutManager(new LinearLayoutManager(view.getContext()));
                     Missionsview.setAdapter(adapter);
                     Missionsview.setVisibility(View.VISIBLE);
                     animationMissions.setVisibility(View.GONE);

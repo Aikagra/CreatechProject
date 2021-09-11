@@ -3,90 +3,141 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:gravity="center"
     android:background="#24242F"
     tools:context=".DetailsFragment">
 
 
-
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="15dp">
+        android:orientation="horizontal"
+        android:background="#24242F"
+        >
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_back"
+            android:padding="10dp"
+            android:id="@+id/backButton"
+            style="@style/Widget.AppCompat.ActionButton"
+            app:tint="@color/white" />
+
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp">
+
+            <ImageView
+                android:id="@+id/purlimg"
+                android:visibility="gone"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:src="@mipmap/ic_launcher" />
+
+            <TextView
+                android:id="@+id/Missiontext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/purlimg"
+                android:text="This is Mission"
+                android:textColor="#F5F5F5"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/Timetext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/Missiontext"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/purlimg"
+                android:text="This is Time"
+                android:textColor="#F5F5F5"
+                android:textSize="23sp" />
+
+            <TextView
+                android:id="@+id/AreaText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/Timetext"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/purlimg"
+                android:text="This is Area"
+                android:textColor="#F5F5F5"
+                android:textSize="23sp" />
+
+
+            <TextView
+                android:id="@+id/Imptext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/AreaText"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/purlimg"
+                android:text="This is Imp Lvl"
+                android:textColor="#F5F5F5"
+                android:textSize="23sp" />
+
+
+
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/textViewDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="20dp"
+            android:text="@string/hello_blank_fragment"
+            android:textSize="18sp"
+            android:textColor="#F5F5F5" />
 
         <ImageView
-            android:id="@+id/purlimg"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:src="@mipmap/ic_launcher" />
+            android:id="@+id/imageViewDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:layout_gravity="center"/>
 
-        <TextView
-            android:id="@+id/Missiontext"
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animationDetails"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_toRightOf="@id/purlimg"
-            android:text="This is Mission"
-            android:textColor="#F5F5F5"
-            android:textSize="24sp"
-            android:textStyle="bold" />
+            app:lottie_rawRes="@raw/loadinganimation"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="false"
+            android:visibility="visible"/>
 
-        <TextView
-            android:id="@+id/Timetext"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/Missiontext"
-            android:layout_marginLeft="10dp"
-            android:layout_toRightOf="@id/purlimg"
-            android:text="This is Time"
-            android:textColor="#F5F5F5"
-            android:textSize="23sp" />
+    </LinearLayout>
 
-        <TextView
-            android:id="@+id/AreaText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/Timetext"
-            android:layout_marginLeft="10dp"
-            android:layout_toRightOf="@id/purlimg"
-            android:text="This is Area"
-            android:textColor="#F5F5F5"
-            android:textSize="23sp" />
-
-
-        <TextView
-            android:id="@+id/Imptext"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/AreaText"
-            android:layout_marginLeft="10dp"
-            android:layout_toRightOf="@id/purlimg"
-            android:text="This is Imp Lvl"
-            android:textColor="#F5F5F5"
-            android:textSize="23sp" />
-
-
-
-
-    </RelativeLayout>
-
-    <TextView
-        android:id="@+id/textViewDetails"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:padding="20dp"
-        android:text="@string/hello_blank_fragment"
-        android:textSize="18sp"
-        android:textColor="#F5F5F5" />
-
-    <ImageView
-        android:id="@+id/imageViewDetails"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="20dp"
-        android:layout_gravity="center"/>
 
 
 

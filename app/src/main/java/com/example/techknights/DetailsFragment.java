@@ -1,9 +1,11 @@
 package com.example.techknights;
 
+import android.app.Activity;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatImageButton;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
@@ -13,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -38,15 +41,6 @@ public class DetailsFragment extends DialogFragment {
 
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment DetailsFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static DetailsFragment newInstance(String param1, String param2) {
         DetailsFragment fragment = new DetailsFragment();
         Bundle args = new Bundle();
@@ -59,12 +53,24 @@ public class DetailsFragment extends DialogFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
+        ((AppCompatImageButton) view.findViewById(R.id.backButton)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            dismiss();
+
+            }
+        });
         String id = getArguments().getString("Id");
         TextView Missiontext = view.findViewById(R.id.Missiontext);
         ImageView purlimg = view.findViewById(R.id.purlimg);
         TextView Timetext = view.findViewById(R.id.Timetext);
         TextView AreaText = view.findViewById(R.id.AreaText);
         TextView Impttext = view.findViewById(R.id.Imptext);
+        LinearLayout linearLayout1 = view.findViewById(R.id.linearLayout1);
+        LinearLayout linearLayout2 = view.findViewById(R.id.linearLayout2);
+
+        linearLayout1.setVisibility(View.GONE);
+        linearLayout2.setVisibility(View.VISIBLE);
 
         Timetext.setText(getArguments().getString("Time"));
         Missiontext.setText(getArguments().getString("Mission"));
@@ -86,10 +92,12 @@ public class DetailsFragment extends DialogFragment {
                     textView.setText(info);
                 }
 
-                if (snapshot.hasChild("Info")){
+                if (snapshot.hasChild("purl")){
                     String purl = snapshot.child("purl").getValue(String.class);
                     Glide.with(getContext()).load(purl).into(imageView);
                 }
+                linearLayout1.setVisibility(View.VISIBLE);
+                linearLayout2.setVisibility(View.GONE);
             }
 
             @Override
@@ -107,8 +115,7 @@ public class DetailsFragment extends DialogFragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
 
         }
-        setStyle(DialogFragment.STYLE_NORMAL,
-                android.R.style.Theme_Black_NoTitleBar_Fullscreen);
+        setStyle(DialogFragment.STYLE_NORMAL, R.style.Theme_TechKnights);
     }
 
     @Override
