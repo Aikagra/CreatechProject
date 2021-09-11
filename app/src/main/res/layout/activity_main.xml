@@ -32,6 +32,12 @@
             android:layout_weight="5"
             android:src="@mipmap/logo" />
 
+        <!--        <View-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="30dp">-->
+
+        <!--        </View>-->
+
         <TextView
             android:id="@+id/emailView"
             android:layout_width="wrap_content"
@@ -54,6 +60,11 @@
             android:textColor="@color/blue_grey_500"
 
             />
+
+
+        <!--        <View-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="10dp"></View>-->
 
         <TextView
             android:id="@+id/passwordView"
@@ -78,12 +89,21 @@
             android:singleLine="true"
             android:textColor="@color/blue_grey_500" />
 
+
+        <!--        <View-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="10dp"></View>-->
+
+        <!--        <View-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="10dp"></View>-->
+
         <Button
             android:id="@+id/loginBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="-4dp"
-            android:layout_marginTop="48dp"
+            android:layout_marginTop="16dp"
             android:layout_marginRight="-4dp"
             android:layout_weight="0.2"
             android:backgroundTint="@color/offwhite"
@@ -91,17 +111,23 @@
             android:textAllCaps="false"
             android:textColor="#24242F" />
 
-        <TextView
+        <Button
             android:id="@+id/signup_email"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:layout_gravity="center"
-            android:gravity="bottom"
-            android:text="New user? Send email to get credentials."
-            android:textColor="#F5F5F5"
-            android:textStyle="italic" />
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="-4dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="-4dp"
+            android:layout_weight="0.2"
+            android:backgroundTint="@color/offwhite"
+            android:text="Signup"
+            android:textAllCaps="false"
+            android:textColor="#24242F" />
 
+
+        <!--        <View-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="10dp"></View>-->
 
 
     </LinearLayout>

@@ -125,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
             animationLogin = findViewById(R.id.animationLogin);
             reference = FirebaseDatabase.getInstance().getReference().child("Users");
             loginBtn = findViewById(R.id.loginBtn);
-            TextView signupEmail = findViewById(R.id.signup_email);
+            Button signupEmail = findViewById(R.id.signup_email);
 
             loginBtn.findViewById(R.id.loginBtn).setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -147,15 +147,18 @@ public class MainActivity extends AppCompatActivity {
             signupEmail.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Log.d("signup", "in oncreate");
-                    Intent intent = new Intent(Intent.ACTION_SENDTO);
-                          //  Uri.fromParts("mailto:", "navgarg06@gmail.com", null));
-                    intent.setData(Uri.parse("mailto:"));
-                    intent.putExtra(Intent.EXTRA_EMAIL, "navgarg06@gmail.com");
-                    intent.putExtra(Intent.EXTRA_SUBJECT, "Request for membership of SpiTech");
-                    if (intent.resolveActivity(getPackageManager()) != null) {
-                        startActivity(intent);
-                    }
+                    Intent email = new Intent(Intent.ACTION_SEND);
+                    //recipient email
+                    email.putExtra(Intent.EXTRA_EMAIL, new String[]{"aikagra2007@gmail.com"});
+                    //subject
+                    email.putExtra(Intent.EXTRA_SUBJECT, "Application to join SpiTech");
+                    //body
+                    email.putExtra(Intent.EXTRA_TEXT, "(Please add your message here and tell us why we should accept your application and your contribution to SpiTech)");
+                    //type
+                    email.setType("message/rfc822");
+                    //chooser
+                    startActivity(Intent.createChooser(email, "Choose an Email client :"));
+
                 }
             });
         }
