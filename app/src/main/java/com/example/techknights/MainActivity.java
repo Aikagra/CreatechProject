@@ -8,8 +8,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -115,16 +117,15 @@ public class MainActivity extends AppCompatActivity {
 //        }
 //        else{
 
-            emailView = (TextView) findViewById(R.id.emailView);
-             passwordView = (TextView) findViewById(R.id.passwordView);
-         imageView = (ImageView) findViewById(R.id.imageView);
-            textEmail = (TextInputEditText) findViewById(R.id.emailLogin);
-            textPassword = (TextInputEditText) findViewById(R.id.passwordLogin);
-            animationLogin = (LottieAnimationView) findViewById(R.id.animationLogin);
+            emailView = findViewById(R.id.emailView);
+            passwordView = findViewById(R.id.passwordView);
+            imageView = findViewById(R.id.imageView);
+            textEmail = findViewById(R.id.emailLogin);
+            textPassword = findViewById(R.id.passwordLogin);
+            animationLogin = findViewById(R.id.animationLogin);
             reference = FirebaseDatabase.getInstance().getReference().child("Users");
-            loginBtn = (Button) findViewById(R.id.loginBtn);
-
-
+            loginBtn = findViewById(R.id.loginBtn);
+            TextView signupEmail = findViewById(R.id.signup_email);
 
             loginBtn.findViewById(R.id.loginBtn).setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -140,6 +141,21 @@ public class MainActivity extends AppCompatActivity {
                     imageView.setVisibility(View.INVISIBLE);
 
 
+                }
+            });
+
+            signupEmail.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Log.d("signup", "in oncreate");
+                    Intent intent = new Intent(Intent.ACTION_SENDTO);
+                          //  Uri.fromParts("mailto:", "navgarg06@gmail.com", null));
+                    intent.setData(Uri.parse("mailto:"));
+                    intent.putExtra(Intent.EXTRA_EMAIL, "navgarg06@gmail.com");
+                    intent.putExtra(Intent.EXTRA_SUBJECT, "Request for membership of SpiTech");
+                    if (intent.resolveActivity(getPackageManager()) != null) {
+                        startActivity(intent);
+                    }
                 }
             });
         }
