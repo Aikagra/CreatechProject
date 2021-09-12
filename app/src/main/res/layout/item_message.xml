@@ -17,37 +17,30 @@
             <LinearLayout
                 android:id="@+id/l1Message"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:paddingHorizontal="20dp"
+                android:layout_height="wrap_content"
                 android:background="@color/teal_200"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:paddingHorizontal="20dp">
 
                 <TextView
                     android:id="@+id/tvTitle"
                     android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:textColor="@color/offwhite"
-                    android:textSize="18sp"
-                    android:text="Random Text"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:background="#3c415e"
                     android:padding="5dp"
-                    android:layout_weight="1"
-                    />
+                    android:text="Random Text"
+                    android:textColor="@color/offwhite"
+                    android:textSize="18sp" />
 
 
-
-                <ImageButton
+                <androidx.appcompat.widget.AppCompatImageButton
                     android:id="@+id/ibDelete"
                     android:layout_width="45dp"
-                    android:layout_height="45dp"
-                    android:background="@color/white"
-                    android:src="@drawable/ic_delete"
-                    />
-
-
-
-
-
+                    android:layout_height="match_parent"
+                    style="@style/Widget.AppCompat.ActionButton"
+                    android:tint="@color/black"
+                    android:src="@drawable/ic_delete" />
 
 
             </LinearLayout>

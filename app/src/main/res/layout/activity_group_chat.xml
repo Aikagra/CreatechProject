@@ -32,7 +32,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#6C7174"
+            android:background="@color/black"
             android:orientation="horizontal">
 
             <EditText
@@ -40,17 +40,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@color/black"
+                android:hint="Enter Message"
                 android:textColor="#F5F5F5"
-                android:background="#6C7174"
-                android:hint="Enter Message"/>
-            
+                android:textColorHint="@color/offwhite" />
+
             <ImageButton
+                android:id="@+id/btnSend"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
-                android:background="#6C7174"
 
-                android:id="@+id/btnSend"
-                android:src="@drawable/ic_send"/>
+                android:background="#6C7174"
+                android:src="@drawable/ic_send" />
 
 
         </LinearLayout>
