@@ -125,22 +125,28 @@ public class MainActivity extends AppCompatActivity {
             animationLogin = findViewById(R.id.animationLogin);
             reference = FirebaseDatabase.getInstance().getReference().child("Users");
             loginBtn = findViewById(R.id.loginBtn);
-            Button signupEmail = findViewById(R.id.signup_email);
+            TextView signupEmail = findViewById(R.id.signup_email);
 
             loginBtn.findViewById(R.id.loginBtn).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    loginUser();
-                    animationLogin.setVisibility(View.VISIBLE);
-                    animationLogin.playAnimation();
-                    loginBtn.setVisibility(View.INVISIBLE);
-                    textEmail.setVisibility(View.INVISIBLE);
-                    textPassword.setVisibility(View.INVISIBLE);
-                    emailView.setVisibility(View.INVISIBLE);
-                    passwordView.setVisibility(View.INVISIBLE);
-                    imageView.setVisibility(View.INVISIBLE);
-
-
+                    String email = Objects.requireNonNull(textEmail.getText()).toString();
+                    String password = Objects.requireNonNull(textPassword.getText()).toString();
+                        if (email.isEmpty()||password.isEmpty()){
+                            Toast.makeText(getApplicationContext(), "Email or Password is Empty", Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                        loginUser();
+                        animationLogin.setVisibility(View.VISIBLE);
+                        animationLogin.playAnimation();
+                        loginBtn.setVisibility(View.INVISIBLE);
+                        textEmail.setVisibility(View.INVISIBLE);
+                        textPassword.setVisibility(View.INVISIBLE);
+                        emailView.setVisibility(View.INVISIBLE);
+                        passwordView.setVisibility(View.INVISIBLE);
+                        imageView.setVisibility(View.INVISIBLE);
+                        signupEmail.setVisibility(View.INVISIBLE);
+                        }
                 }
             });
 

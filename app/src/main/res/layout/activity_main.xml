@@ -108,21 +108,22 @@
             android:layout_weight="0.2"
             android:backgroundTint="@color/offwhite"
             android:text="Login"
+            android:textSize="18dp"
             android:textAllCaps="false"
             android:textColor="#24242F" />
 
-        <Button
+        <TextView
             android:id="@+id/signup_email"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="-4dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginRight="-4dp"
-            android:layout_weight="0.2"
-            android:backgroundTint="@color/offwhite"
-            android:text="Signup"
-            android:textAllCaps="false"
-            android:textColor="#24242F" />
+           android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:text="Send Application For Credentials"
+            android:textColor="@color/offwhite"
+            android:textSize="18sp"
+            android:textStyle="italic"
+            android:textAlignment="center"
+            android:paddingTop="30dp"
+            android:clickable="true"
+            />
 
 
         <!--        <View-->
