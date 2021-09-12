@@ -3,9 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/SpiTech_background.xml" value="0.24259259259259258" />
         <entry key="app/src/main/res/drawable/cornerstyle.xml" value="0.2537037037037037" />
         <entry key="app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.2537037037037037" />
         <entry key="app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.24259259259259258" />
+        <entry key="app/src/main/res/drawable/spitech_background.xml" value="0.24259259259259258" />
         <entry key="app/src/main/res/layout/activity_bottom_navigation.xml" value="0.2078839094968426" />
         <entry key="app/src/main/res/layout/activity_group_chat.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
@@ -20,6 +22,9 @@
         <entry key="app/src/main/res/layout/item_message.xml" value="0.15462962962962962" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.15462962962962962" />
         <entry key="app/src/main/res/menu/menu.xml" value="0.15462962962962962" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/SpiTech.xml" value="0.24259259259259258" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/SpiTech_round.xml" value="0.24259259259259258" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/spitech.xml" value="0.24259259259259258" />
       </map>
     </option>
   </component>
