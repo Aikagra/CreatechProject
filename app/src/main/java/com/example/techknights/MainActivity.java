@@ -42,8 +42,8 @@ public class MainActivity extends AppCompatActivity {
     LottieAnimationView animationLogin;
     Button loginBtn;
     ImageView imageView;
-    TextView emailView;
-    TextView passwordView;
+    TextView emailView, passwordView, signupEmail;
+
 
 
 
@@ -125,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
             animationLogin = findViewById(R.id.animationLogin);
             reference = FirebaseDatabase.getInstance().getReference().child("Users");
             loginBtn = findViewById(R.id.loginBtn);
-            TextView signupEmail = findViewById(R.id.signup_email);
+            signupEmail = findViewById(R.id.signup_email);
 
             loginBtn.findViewById(R.id.loginBtn).setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -196,6 +196,7 @@ public class MainActivity extends AppCompatActivity {
                                     emailView.setVisibility(View.VISIBLE);
                                     passwordView.setVisibility(View.VISIBLE);
                                     imageView.setVisibility(View.VISIBLE);
+                                    signupEmail.setVisibility(View.VISIBLE);
                                     startActivity(intent);
 
                                 }
@@ -208,6 +209,7 @@ public class MainActivity extends AppCompatActivity {
                                     emailView.setVisibility(View.VISIBLE);
                                     passwordView.setVisibility(View.VISIBLE);
                                     imageView.setVisibility(View.VISIBLE);
+                                    signupEmail.setVisibility(View.VISIBLE);
                                 }
 
                         }
