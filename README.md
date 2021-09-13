@@ -46,7 +46,8 @@ For example, banking and insurance can be managed by a BOT through online intera
 
 
 #### Mission 2 - Find new sources of green energy
-##### Green Energy: Our main aim is to find new sources of green energy and bring them to light for the development of our planet
+##### Green Energy: 
+Our main aim is to find new sources of green energy and bring them to light for the development of our planet
 
 ##### Nuclear Energy Model
 Create a nuclear energy model which can power spaceships even where light from a star cannot reach it. This can be achieved by using radioactive elements and making them undergo nuclear fission.
@@ -60,4 +61,16 @@ Geothermal power plants can be set up to obtain geothermal energy which is  stor
 
 ##### Solar Fuels
 An apparatus for solar can be created for fuels which will use sunlight to split water and co2 molecules to make hydrocarbons.
+
+### Uniqueness and usefulness
+We decided to create a secret society app because it's a very one of its kind idea and it enables us to solve real world problems without even meeting in the real world.
+
+### Scope and potential
+We want to improve SpiTech even more. We want to add complex functionalities like an AI/ML bot to create and manage missions based on the current problems in the real world such as the Covid-19 epidemic etc. We will improve the profile page of our app and make it let users change their profile picture and email from the application itself. We will also be adding a forgot password function to let users change their password if they ever forget it, for now we have all the information about our members so we can help them until the function is developed.
+
+### Credits
+LottieFiles : https://lottiefiles.com
+Bumptech Glide: https://github.com/bumptech/glide
+And .Createch for giving us this amazing opportunity to work on this app
+
 
