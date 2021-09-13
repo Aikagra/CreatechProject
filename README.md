@@ -63,14 +63,16 @@ Geothermal power plants can be set up to obtain geothermal energy which is  stor
 An apparatus for solar can be created for fuels which will use sunlight to split water and co2 molecules to make hydrocarbons.
 
 ### Uniqueness and usefulness
-We decided to create a secret society app because it's a very one of its kind idea and it enables us to solve real world problems without even meeting in the real world.
+We believe that the SpiTech society can be a medium where everyone interested in contributing to the war can share ideas and communicate with each other. This is 
 
 ### Scope and potential
-We want to improve SpiTech even more. We want to add complex functionalities like an AI/ML bot to create and manage missions based on the current problems in the real world such as the Covid-19 epidemic etc. We will improve the profile page of our app and make it let users change their profile picture and email from the application itself. We will also be adding a forgot password function to let users change their password if they ever forget it, for now we have all the information about our members so we can help them until the function is developed.
+SpiTech, as we envision it, is not yet complete. Due to the limited time, some useful features were not able to be implement. Some features we would like to add:
+- Some complex functionalities like an AI/ML bot to create and manage missions based on the current problems coming up during the war. 
+- A forgot password option to let users change their password if they ever forget it. For now all the information about the members is present with the society head, who can be contacted in case of any issues.
 
 ### Credits
-LottieFiles : https://lottiefiles.com
-Bumptech Glide: https://github.com/bumptech/glide
-And .Createch for giving us this amazing opportunity to work on this app
+- LottieFiles : https://lottiefiles.com
+- Bumptech Glide: https://github.com/bumptech/glide
+- And .Createch for giving us this amazing opportunity to work on this app
 
 
